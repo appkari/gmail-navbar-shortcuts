@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gmail Navbar Shortcuts - Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body class="optionsBody">
+    <h2>Gmail Navbar Shortcuts Options</h2>
+    <div class="row">
+      <div id="status"></div>
+      <button id="save">Save</button>
+      <button id="reset">Reset</button>
+    </div>
+    <div class="row">
+      <label for="color">Color: </label>
+      <input
+        class="color-textbox"
+        type="text"
+        name="color"
+        id="color"
+        placeholder="#444746"
+      />
+      <span> | Choose from: </span>
+      <span class="box grey" id="grey-box"> grey </span>
+      <span class="box white" id="white-box"> white </span>
+      <span class="box black" id="black-box"> black </span>
+    </div>
+
+    <div class="row">
+      <input type="checkbox" name="showTitles" id="showTitles" />
+      <label for="showTitles">Show Titles (unchecking titles can fit more icons)</label>
+    </div>
+
+    <div class="row">
+      A few preselected icons are available. Paste in the URL you want and the title.
+      The checkbox lets you choose whether you want the link displayed.
+    </div>
+    <div class="row">
+      Note! You need to
+      <span class="highlight-red">press the Save button</span>
+      to save changes.
+    </div>
+    <div class="row" id="iconsContainer"></div>
+
+    <script src="svgs.js"></script>
+    <script src="vars.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

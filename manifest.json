@@ -2,65 +2,29 @@
   "manifest_version": 2,
   "name": "Gmail Navbar Shortcuts",
   "version": "1.1.0",
-  "description": "Manage labeled quick links and Gmail label shortcuts from a persistent sidebar in Gmail, Google Chat, and Google Meet.",
+  "description": "Adds icon shortcuts to Gmail's left navbar with configurable URLs and titles.",
   "author": "s7dhansh",
-
-  "permissions": [
-    "storage",
-    "https://mail.google.com/*",
-    "https://chat.google.com/*",
-    "https://meet.google.com/*"
-  ],
-
-  "sidebar_action": {
-    "default_title": "Gmail Shortcuts",
-    "default_panel": "sidebar/sidebar.html",
-    "default_icon": {
-      "48": "icons/icon-48.png",
-      "96": "icons/icon-96.png"
-    },
-    "open_at_install": false
-  },
-
-  "browser_action": {
-    "default_title": "Toggle Shortcuts Sidebar",
-    "default_icon": {
-      "48": "icons/icon-48.png",
-      "96": "icons/icon-96.png"
-    }
-  },
-
-  "commands": {
-    "_execute_sidebar_action": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+Y"
-      },
-      "description": "Toggle Gmail Shortcuts sidebar"
-    }
-  },
-
-  "content_scripts": [
-    {
-      "matches": [
-        "https://mail.google.com/*",
-        "https://chat.google.com/*",
-        "https://meet.google.com/*"
-      ],
-      "js": ["shared/storage.js", "content/navbar-shortcuts.js", "content/content.js"],
-      "css": ["content/content.css"],
-      "run_at": "document_idle"
-    }
-  ],
-
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
 
   "icons": {
     "48": "icons/icon-48.png",
     "96": "icons/icon-96.png"
   },
+
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "run_at": "document_start",
+      "js": ["vars.js", "svgs.js", "content.js"],
+      "css": ["options.css"]
+    }
+  ],
+
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+
+  "permissions": ["storage"],
 
   "browser_specific_settings": {
     "gecko": {

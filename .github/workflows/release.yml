@@ -23,10 +23,12 @@ jobs:
         run: |
           zip -r gmail-navbar-shortcuts-${{ steps.version.outputs.version }}.xpi \
             manifest.json \
-            background.js \
-            content/ \
-            shared/ \
-            sidebar/ \
+            vars.js \
+            svgs.js \
+            content.js \
+            options.html \
+            options.js \
+            options.css \
             icons/ \
             --exclude "icons/generate-icons.js"
 

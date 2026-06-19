@@ -1,0 +1,71 @@
+.divider {
+  border: 1px dashed grey;
+}
+
+.textbox {
+  width: 150px;
+}
+
+.color-textbox {
+  width: 60px;
+}
+
+.optionsBody {
+  font-size: 16px;
+}
+
+.highlight-red {
+  color: red;
+}
+
+.urlTextbox {
+  width: 350px;
+}
+
+.titleTextbox {
+  width: 100px;
+}
+
+.link-wrapper {
+  margin-top: 5px;
+  text-align: center;
+}
+
+.icon-wrapper {
+  margin: 0px auto 0px auto;
+  width: 30%;
+}
+
+.title-wrapper {
+}
+
+.row {
+  margin-top: 10px;
+  width: 100%;
+  display: block;
+}
+
+.box {
+  height: 20px;
+  width: 40px;
+  margin: 0px 5px;
+  padding: 2px 7px 2px 7px;
+  border: 1px solid black;
+  border-radius: 8px;
+  display: inline;
+}
+
+.black {
+  background-color: black;
+  color: grey;
+}
+
+.white {
+  background-color: white;
+  color: grey;
+}
+
+.grey {
+  background-color: #444746;
+  color: grey;
+}
