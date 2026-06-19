@@ -23,6 +23,7 @@ jobs:
         run: |
           zip -r gmail-navbar-shortcuts-${{ steps.version.outputs.version }}.xpi \
             manifest.json \
+            background.js \
             vars.js \
             svgs.js \
             content.js \
