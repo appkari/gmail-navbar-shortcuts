@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gmail Shortcuts</title>
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <span class="header-title">Shortcuts</span>
+      <div class="header-actions">
+        <button id="btn-add-link"  class="icon-btn" title="Add link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+        <button id="btn-manage-labels" class="icon-btn" title="Manage labels">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+            <line x1="7" y1="7" x2="7.01" y2="7"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <input id="search-input" type="text" placeholder="Search links..." autocomplete="off">
+    </div>
+
+    <!-- Label tabs -->
+    <div id="label-tabs" class="label-tabs">
+      <!-- rendered by JS -->
+    </div>
+
+    <!-- Links list -->
+    <div id="links-list" class="links-list">
+      <!-- rendered by JS -->
+    </div>
+
+    <!-- Add Link panel (hidden by default) -->
+    <div id="add-link-panel" class="bottom-panel hidden">
+      <div class="panel-header">
+        <span>Add Link</span>
+        <button class="close-panel-btn" data-target="add-link-panel">&#x2715;</button>
+      </div>
+      <div class="panel-body">
+        <input id="new-link-title" type="text"  placeholder="Title"  autocomplete="off">
+        <input id="new-link-url"   type="url"   placeholder="https://" autocomplete="off">
+        <select id="new-link-label">
+          <option value="">No label</option>
+        </select>
+        <div id="add-link-error" class="error-msg hidden"></div>
+        <button id="save-link-btn" class="primary-btn">Save</button>
+      </div>
+    </div>
+
+    <!-- Manage Labels panel (hidden by default) -->
+    <div id="manage-labels-panel" class="bottom-panel hidden">
+      <div class="panel-header">
+        <span>Labels</span>
+        <button class="close-panel-btn" data-target="manage-labels-panel">&#x2715;</button>
+      </div>
+      <div class="panel-body">
+        <div id="labels-list"><!-- rendered by JS --></div>
+        <hr>
+        <input id="new-label-name"  type="text"  placeholder="Label name" autocomplete="off">
+        <input id="new-label-color" type="color"  value="#4A90D9" title="Label color">
+        <div id="add-label-error" class="error-msg hidden"></div>
+        <button id="save-label-btn" class="primary-btn">Create Label</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/storage.js"></script>
+  <script src="sidebar.js"></script>
+</body>
+</html>

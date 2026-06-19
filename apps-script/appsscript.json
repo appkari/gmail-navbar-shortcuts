@@ -1,0 +1,58 @@
+{
+  "timeZone": "Asia/Kolkata",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/gmail.labels",
+    "https://www.googleapis.com/auth/gmail.modify",
+    "https://www.googleapis.com/auth/gmail.readonly",
+    "https://www.googleapis.com/auth/script.locale",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/script.storage"
+  ],
+  "addOns": {
+    "common": {
+      "name": "Label & Link Manager",
+      "logoUrl": "https://fonts.gstatic.com/s/i/googlematerialicons/label/v15/gmsm_label-24px.svg",
+      "homepageTrigger": {
+        "runFunction": "onHomepage",
+        "enabled": true
+      },
+      "universalActions": [
+        {
+          "label": "Add Quick Link",
+          "runFunction": "openAddLinkDialog"
+        },
+        {
+          "label": "Manage Labels",
+          "runFunction": "openManageLabels"
+        }
+      ]
+    },
+    "gmail": {
+      "homepageTrigger": {
+        "runFunction": "onGmailHomepage",
+        "enabled": true
+      },
+      "contextualTriggers": [
+        {
+          "unconditional": {},
+          "onTriggerFunction": "onGmailMessage"
+        }
+      ]
+    },
+    "chat": {
+      "homepageTrigger": {
+        "runFunction": "onChatHomepage",
+        "enabled": true
+      }
+    },
+    "meet": {
+      "homepageTrigger": {
+        "runFunction": "onMeetHomepage",
+        "enabled": true
+      }
+    }
+  }
+}
