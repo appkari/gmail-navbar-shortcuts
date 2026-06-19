@@ -39,19 +39,13 @@ var getElementByXPath = function (xPath) {
 };
 
 async function getOptionsAndNavbarUpdate() {
-  browser.storage.sync.get(
-    {
-      color: defaultColor,
-      showTitles: defaultShowTitles,
-      links: JSON.stringify(Array.from(defaultLinksMap.entries())),
-    },
-    (items) => {
-      const color = items.color;
-      const showTitles = items.showTitles;
-      const linksMap = new Map(JSON.parse(items.links));
-      navbarUpdate(color, showTitles, linksMap);
-    }
-  );
+  const items = await browser.storage.sync.get({
+    color: defaultColor,
+    showTitles: defaultShowTitles,
+    links: JSON.stringify(Array.from(defaultLinksMap.entries())),
+  });
+  const linksMap = new Map(JSON.parse(items.links));
+  navbarUpdate(items.color, items.showTitles, linksMap);
 }
 
 function getNavbar() {

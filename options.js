@@ -35,39 +35,33 @@ function saveOptions() {
   }
   let linksSerialMap = JSON.stringify(Array.from(links.entries()));
 
-  browser.storage.sync.set(
-    { color: color, showTitles: showTitles, links: linksSerialMap },
-    () => {
-      const status = document.getElementById("status");
-      status.textContent = "Options saved.";
-      setTimeout(() => {
-        status.textContent = "";
-      }, 750);
-    }
-  );
+  browser.storage.sync.set({ color: color, showTitles: showTitles, links: linksSerialMap }).then(() => {
+    const status = document.getElementById("status");
+    status.textContent = "Options saved.";
+    setTimeout(() => {
+      status.textContent = "";
+    }, 750);
+  });
 }
 
 function restoreOptions() {
-  browser.storage.sync.get(
-    {
-      color: defaultColor,
-      showTitles: defaultShowTitles,
-      links: JSON.stringify(Array.from(defaultLinksMap.entries())),
-    },
-    (items) => {
-      document.getElementById("color").value = items.color;
-      setColorBoxBackgroundColor();
-      document.getElementById("showTitles").checked = items.showTitles;
+  browser.storage.sync.get({
+    color: defaultColor,
+    showTitles: defaultShowTitles,
+    links: JSON.stringify(Array.from(defaultLinksMap.entries())),
+  }).then((items) => {
+    document.getElementById("color").value = items.color;
+    setColorBoxBackgroundColor();
+    document.getElementById("showTitles").checked = items.showTitles;
 
-      let linksMap = new Map(JSON.parse(items.links));
+    let linksMap = new Map(JSON.parse(items.links));
 
-      for (let [name, link] of linksMap) {
-        document.getElementById(name + "IconURL").value = link.url;
-        document.getElementById(name + "IconTitle").value = link.title;
-        document.getElementById(name + "IconShow").checked = link.show;
-      }
+    for (let [name, link] of linksMap) {
+      document.getElementById(name + "IconURL").value = link.url;
+      document.getElementById(name + "IconTitle").value = link.title;
+      document.getElementById(name + "IconShow").checked = link.show;
     }
-  );
+  });
 }
 
 function insertIconsOptions() {
