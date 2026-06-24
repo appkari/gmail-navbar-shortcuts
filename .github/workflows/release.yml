@@ -47,7 +47,7 @@ jobs:
 
       - name: Submit to Mozilla Add-ons
         run: |
-          echo '{"version":{"license":"MIT"}}' > amo-metadata.json
+          echo '{"categories":{"firefox":["other"]},"version":{"license":"MIT"}}' > amo-metadata.json
           npx web-ext sign \
             --source-dir . \
             --artifacts-dir ./amo-artifacts \
