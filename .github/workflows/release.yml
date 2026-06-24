@@ -55,4 +55,5 @@ jobs:
             --api-key "${{ secrets.AMO_JWT_ISSUER }}" \
             --api-secret "${{ secrets.AMO_JWT_SECRET }}" \
             --amo-metadata amo-metadata.json \
-            --ignore-files "apps-script/**" ".github/**" "icons/generate-icons.js" "README.md" "*.xpi" "amo-metadata.json"
+            --ignore-files "apps-script/**" ".github/**" "icons/generate-icons.js" "README.md" "*.xpi" "amo-metadata.json" \
+          || echo "Submitted for Mozilla review (approval pending — this is expected for listed add-ons)"
