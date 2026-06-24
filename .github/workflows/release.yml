@@ -53,4 +53,5 @@ jobs:
             --channel listed \
             --api-key "${{ secrets.AMO_JWT_ISSUER }}" \
             --api-secret "${{ secrets.AMO_JWT_SECRET }}" \
+            --amo-metadata '{"version":{"license":"MIT"}}' \
             --ignore-files "apps-script/**" ".github/**" "icons/generate-icons.js" "README.md" "*.xpi"
