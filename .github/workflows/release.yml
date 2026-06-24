@@ -47,11 +47,12 @@ jobs:
 
       - name: Submit to Mozilla Add-ons
         run: |
+          echo '{"version":{"license":"MIT"}}' > amo-metadata.json
           npx web-ext sign \
             --source-dir . \
             --artifacts-dir ./amo-artifacts \
             --channel listed \
             --api-key "${{ secrets.AMO_JWT_ISSUER }}" \
             --api-secret "${{ secrets.AMO_JWT_SECRET }}" \
-            --amo-metadata '{"version":{"license":"MIT"}}' \
-            --ignore-files "apps-script/**" ".github/**" "icons/generate-icons.js" "README.md" "*.xpi"
+            --amo-metadata amo-metadata.json \
+            --ignore-files "apps-script/**" ".github/**" "icons/generate-icons.js" "README.md" "*.xpi" "amo-metadata.json"

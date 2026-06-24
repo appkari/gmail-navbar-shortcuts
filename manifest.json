@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
   "name": "Gmail Navbar Shortcuts",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Adds icon shortcuts to Gmail's left navbar with configurable URLs and titles.",
   "author": "s7dhansh",
-  "homepage_url": "https://github.com/s7dhansh/gmail-navbar-shortcuts",
+  "homepage_url": "https://github.com/appkari/gmail-navbar-shortcuts",
 
   "icons": {
     "48": "icons/icon-48.png",
